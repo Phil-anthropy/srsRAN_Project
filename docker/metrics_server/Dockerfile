@@ -21,7 +21,7 @@
 ###################
 # Package Builder #
 ###################
-FROM python:3.12-alpine AS builder
+FROM python:3.13.0a1-alpine AS builder
 
 # Add the folder
 ADD . /src
@@ -33,7 +33,7 @@ RUN pip wheel -w /src/wheelhouse /src
 ######################
 # Final docker image #
 ######################
-FROM python:3.12-alpine
+FROM python:3.13.0a1-alpine
 
 # Avoid extra index url set by gitlab-ci
 ARG PIP_EXTRA_INDEX_URL=""
